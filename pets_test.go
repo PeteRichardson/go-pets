@@ -12,3 +12,12 @@ func TestNewPet(t *testing.T) {
 	assert.Equal(t, "American Shorthair", p.Breed)
 	assert.Equal(t, 5, p.Age)
 }
+
+func TestRandomPet(t *testing.T) {
+	p1 := RandomPet()
+	p2 := RandomPet()
+	// log.Println(p1)
+	// log.Println(p2)
+	// Assert that the pets are not identical
+	assert.NotEqual(t, p1, p2, "Two random pets seem to be identical.")
+}
