@@ -2,6 +2,7 @@ package pets
 
 import (
 	"math/rand"
+	"time"
 )
 
 type Pet struct {
@@ -11,14 +12,24 @@ type Pet struct {
 	Age     int    `json:"age"`
 }
 
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 func NewPet(name string, species string, breed string, age int) *Pet {
 	newPet := &Pet{Name: name, Species: species, Breed: breed, Age: age}
 	return newPet
 }
 
 func RandomPet() *Pet {
-	name := Names[rand.Intn(len(Names))]
 	species := Species[rand.Intn(len(Species))]
+	if species == "Cat" {
+		return &RandomCat().Pet
+	}
+	if species == "Dog" {
+		return &RandomDog().Pet
+	}
+	name := Names[rand.Intn(len(Names))]
 	breed := "Shetland Pony"
 	age := rand.Intn(23) + 1
 	return NewPet(name, species, breed, age)

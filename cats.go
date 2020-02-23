@@ -18,12 +18,12 @@ func NewCat(name string, breed string, age int) *Cat {
 
 func RandomCat() *Cat {
 	name := Names[rand.Intn(len(Names))]
-	breed := Breeds[rand.Intn(len(Breeds))]
+	breed := CatBreeds[rand.Intn(len(CatBreeds))]
 	age := rand.Intn(23) + 1
 	return NewCat(name, breed, age)
 }
 
-var Breeds = []string{"Abyssinian", "American Bobtail",
+var CatBreeds = []string{"Abyssinian", "American Bobtail",
 	"American Curl", "American Shorthair", "American Wirehair", "Balinese",
 	"Bengal Cats", "Birman", "Bombay", "British Shorthair", "Burmese",
 	"Burmilla", "Chartreux", "Chinese Li Hua", "Colorpoint Shorthair",
