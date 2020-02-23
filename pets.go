@@ -29,10 +29,13 @@ func RandomPet() *Pet {
 	if species == "Dog" {
 		return &RandomDog().Pet
 	}
-	name := Names[rand.Intn(len(Names))]
-	breed := "Shetland Pony"
-	age := rand.Intn(23) + 1
-	return NewPet(name, species, breed, age)
+	if species == "Horse" {
+		return &RandomHorse().Pet
+	}
+	if species == "Snake" {
+		return &RandomSnake().Pet
+	}
+	return nil
 }
 
 var Species = []string{"Cat", "Dog", "Horse", "Snake"}
