@@ -9,14 +9,14 @@ type Cat struct {
 	HasHairball bool
 }
 
-func NewCat(name string, breed string, age int) *Cat {
+func NewCat(name string, breed string, age int) Cat {
 	cat := Cat{}
-	cat.Pet = *NewPet(name, "Cat", breed, age)
+	cat.Pet = NewPet(name, "Cat", breed, age)
 	cat.HasHairball = false
-	return &cat
+	return cat
 }
 
-func RandomCat() *Cat {
+func RandomCat() Cat {
 	name := Names[rand.Intn(len(Names))]
 	breed := CatBreeds[rand.Intn(len(CatBreeds))]
 	age := rand.Intn(23) + 1

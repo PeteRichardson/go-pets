@@ -16,26 +16,26 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-func NewPet(name string, species string, breed string, age int) *Pet {
-	newPet := &Pet{Name: name, Species: species, Breed: breed, Age: age}
+func NewPet(name string, species string, breed string, age int) Pet {
+	newPet := Pet{Name: name, Species: species, Breed: breed, Age: age}
 	return newPet
 }
 
-func RandomPet() *Pet {
+func RandomPet() Pet {
 	species := Species[rand.Intn(len(Species))]
 	if species == "Cat" {
-		return &RandomCat().Pet
+		return RandomCat().Pet
 	}
 	if species == "Dog" {
-		return &RandomDog().Pet
+		return RandomDog().Pet
 	}
 	if species == "Horse" {
-		return &RandomHorse().Pet
+		return RandomHorse().Pet
 	}
 	if species == "Snake" {
-		return &RandomSnake().Pet
+		return RandomSnake().Pet
 	}
-	return nil
+	return Pet{}
 }
 
 var Species = []string{"Cat", "Dog", "Horse", "Snake"}

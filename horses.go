@@ -8,13 +8,13 @@ type Horse struct {
 	Pet
 }
 
-func NewHorse(name string, breed string, age int) *Horse {
+func NewHorse(name string, breed string, age int) Horse {
 	horse := Horse{}
-	horse.Pet = *NewPet(name, "Horse", breed, age)
-	return &horse
+	horse.Pet = NewPet(name, "Horse", breed, age)
+	return horse
 }
 
-func RandomHorse() *Horse {
+func RandomHorse() Horse {
 	name := Names[rand.Intn(len(Names))]
 	breed := HorseBreeds[rand.Intn(len(HorseBreeds))]
 	age := rand.Intn(23) + 1
